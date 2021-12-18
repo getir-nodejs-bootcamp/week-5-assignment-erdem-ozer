@@ -31,6 +31,5 @@ router
   .patch(authenticateAdmin, validate(schemas.updateProduct, "body"), update);
 
 router.route("/:id/add-media").post(authenticateAdmin, addMedia);
-// router.route("/:typeId").post(validate(userQuery, "query"),validate(createUser, "body"), create);
 
 module.exports = router;

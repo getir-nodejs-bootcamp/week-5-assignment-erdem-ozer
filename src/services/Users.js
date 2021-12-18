@@ -11,11 +11,16 @@ const insert = (data) => {
 const findOne = (where) => {
   return User.findOne(where);
 };
-// const updateDoc = () => {};
+
+const update = (where, data) => {
+  return User.findOneAndUpdate(where, data, { new: true });
+};
+
 // const deleteDoc = () => {};
 
 module.exports = {
   list,
   insert,
   findOne,
+  update,
 };

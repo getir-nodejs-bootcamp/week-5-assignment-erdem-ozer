@@ -1,14 +1,16 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
+const path = require("path");
 
 const { UserRoutes, ProductRoutes } = require("./routes");
 
 const loaders = require("./loaders");
 const config = require("./config");
-const path = require("path");
+const events = require("./scripts/events");
 
 config();
 loaders();
+events();
 
 const app = express();
 app.use(
