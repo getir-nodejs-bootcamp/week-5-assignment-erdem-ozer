@@ -23,7 +23,6 @@ router
     usersController.resetPassword
   );
 
-// For admin prilivleges
 router.route("/").get(authenticateAdmin, usersController.index);
 
 router

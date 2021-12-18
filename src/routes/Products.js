@@ -1,12 +1,6 @@
 const express = require("express");
 
-const {
-  index,
-  create,
-  update,
-  addComment,
-  addMedia,
-} = require("../controllers/Products");
+const productsController = require("../controllers/Products");
 
 const schemas = require("../validations/Products");
 const validate = require("../middlewares/validate");
@@ -20,16 +14,30 @@ router.route("/").get(index);
 
 router
   .route("/:id/add-comment")
-  .post(authenticate, validate(schemas.addComment, "body"), addComment);
+  .post(
+    authenticate,
+    validate(schemas.addComment, "body"),
+    productsController.addComment
+  );
 
 router
   .route("/")
-  .post(authenticateAdmin, validate(schemas.createProduct, "body"), create);
+  .post(
+    authenticateAdmin,
+    validate(schemas.createProduct, "body"),
+    productsController.create
+  );
 
 router
   .route("/:id")
-  .patch(authenticateAdmin, validate(schemas.updateProduct, "body"), update);
+  .patch(
+    authenticateAdmin,
+    validate(schemas.updateProduct, "body"),
+    productsController.update
+  );
 
-router.route("/:id/add-media").post(authenticateAdmin, addMedia);
+router
+  .route("/:id/add-media")
+  .post(authenticateAdmin, productsController.addMedia);
 
 module.exports = router;
