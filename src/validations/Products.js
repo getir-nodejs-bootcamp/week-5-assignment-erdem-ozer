@@ -23,6 +23,7 @@ const addComment = Joi.object({
 });
 
 // const addMedia = Joi.any().meta({ swaggerType: "file" });
+// Ödev için : bu kısımda yukarıdaki kod üzerinde geliştirme yapılabilir ama ben çalışan bir kullanım göremedim.
 
 module.exports = {
   createProduct,

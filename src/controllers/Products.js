@@ -103,7 +103,7 @@ const addMedia = (req, res) => {
           if (!updatedDoc)
             return res
               .status(hs.NOT_FOUND)
-              .send({ message: "Böyle bir ürün bulunmamaktadır" });
+              .send({ message: "This item does not exist" });
           res.status(hs.OK).send(updatedDoc);
         })
         .catch((e) => res.status(hs.INTERNAL_SERVER_ERROR).send(e));
