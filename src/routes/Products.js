@@ -10,7 +10,7 @@ const authenticateAdmin = require("../middlewares/authenticateAdmin");
 
 const router = express.Router();
 
-router.route("/").get(index);
+router.route("/").get(productsController.index);
 
 router
   .route("/:id/add-comment")
